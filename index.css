@@ -4,6 +4,7 @@ body, html {
     padding: 0;
     font-family: Arial, sans-serif;
     height: 100%;
+    background-color: #000;
 }
 
 /* Navbar */
@@ -175,7 +176,7 @@ body, html {
     padding: 4rem 0;
     
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('AdobeStock_862636380_Preview.jpeg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('pexels-negativespace-97077 copy.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -189,6 +190,9 @@ body, html {
     overflow: hidden;
     background-attachment: fixed;
     text-align: center;
+}
+.aboutcontent {
+    margin-top: 28px;
 }
 .span1{
     display: block;
@@ -212,33 +216,61 @@ body, html {
     letter-spacing: 3px;
     text-transform: uppercase;
     font-weight: bold;
-    color: #333;
+    color: lavenderblush;
     font-weight: 700;
+    margin-top: 40px;
+    text-decoration: underline;
+    text-underline-offset: 7px;
+    border-radius: 15px;
 }
 .aboutp{
     font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: normal;
     font-family: 'Roboto', sans-serif;
+    color: lavender;
     
     width: 40%;
+    margin-top: 20px;
 }
+.aboutlowerh{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: auto;
+    text-align: left;
+    margin-left: 30px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: lavenderblush;
+    font-weight: 700;
+    margin-top: 40px;
+}
+
+
 .aboutlowerLeft{
     display: absolute;
     justify-content: center;
-    align-items: center;
-    gap: 0rem;
-    margin-top: 1rem;
+    align-items: left;
+    gap: 1.9rem;
+    margin-top: .4rem;
     margin-bottom: 1rem;
     margin-left: 0.5rem;
     margin-right: 40rem;
-    padding: 1rem;
+    padding: .6rem;
     text-align: center;
-    line-height: 1.5;
-    font-weight:300;
+    line-height: 1.6;
+    color: lavender;
+    font-weight:750;
     font-size: 1.1rem;
     
 
+    border-radius: 2rem 0 2rem 0;
+    
+
+}
+.aboutlowerleftP{
+    
 }
 
 .aboutlowerRight{
@@ -246,7 +278,7 @@ body, html {
     justify-content: center;
     align-items: center;
     gap: 0rem;
-    margin-top: -30rem;
+    margin-top: -32.0rem;
     margin-bottom: 1rem;
     margin-left: 40rem;
     margin-right: 0.5rem;
@@ -257,14 +289,210 @@ body, html {
     font-size: 1.1rem;
    
 }
+.aboutlowerRighth{
+    font-size: 1.5rem;
+    text-align: left;
+    margin-bottom: 1.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: lavenderblush;
+    font-weight: 700;
+    margin-top: 40px;
+}
 
 .skills{
+    font-size: 1.0rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    display: flex;
+    flex-wrap: wrap;
    
 
    
 }
+.skills__skill{
+    line-height: 1.5;
+    margin: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    padding: 0.7rem 1.4rem;
+    margin-bottom: 1.5rem;
+    margin-right: 1.5rem;
+    background: rgba(255,255,255,.2);
+    border-radius: 1.6rem 0 1.6rem 0;
+    font-weight: 600;
+    color: lavender;
+}
+.skills__skill:hover{
+    background: rgba(255,255,255,.3);
+    color: white;
+}
+.btn1about, .btn2about {
+    display: inline-block;
+    font-weight: 700;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+    margin-top: 0.8rem;
+    margin-right: 30px; /* Space between buttons */
+    text-align: center;
+    font-size: 1.1rem; /* Made the button smaller */
+    padding: 10px 25px; /* Adjusted padding for smaller size */
+    background-color: #e8491d;
+    color: #ffffff !important; /* Force white text color */
+    text-decoration: none; /* Remove underline */
+    position: relative;
+    z-index: 10;
+    pointer-events: auto; /* Ensure the button is clickable */
+}
 
+.btn1about:hover, .btn2about:hover {
+    background-color: black; /* Change background on hover */
+    transform: scale(1.2); /* Grow the button on hover */
+}
 
+.btn1-link, .btn2-link {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+/* Reset styles for links inside the buttons */
+.btn1about a, .btn2about a {
+    color: inherit; /* Inherit color from the button */
+    text-decoration: none; /* Remove underline */
+}
+
+/*Footer Section*/
+.footer {
+    font-size: 62.5%;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    box-sizing:inherit;
+    font-family: inherit;
+    background: #000;
+    color: #fff;
+
+}
+.main-container{
+    font-size: 62.5%;
+    line-height: 1.5;
+    color: #fff;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    max-width: 120rem;
+    margin: auto;
+    width: 92%;
+}
+.main-footer__upper{
+    font-size: 62.5%;
+    line-height: 1.5;;
+    margin: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    display: flex;
+    justify-content: space-between;
+    padding: 8rem 0;
+}
+.main-footer_right
+{
+    font-size: 62.5%;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    order: 2;
+  
+}
+.heading-footer_right{
+    line-height: 1.5;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 2.2rem;
+}
+.main-footer__social-cont{
+    font-size: 62.5%;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    margin-top: 2rem;
+}
+.main-footer__icon{
+    font-size: 62.5%;
+    line-height: 1.5;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    margin-right: 1rem;
+    width: 2.5rem;
+}
+.main-footer__icon:hover{
+    transform: scale(1.2);
+}
+.main-footer_left{
+    font-size: 62.5%;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    width: 40%;
+    order: 1;
+    max-width: 50rem;
+}
+.heading-footer_left{
+    line-height: 1.5;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 2.2rem;
+}
+.main-footer-left-p
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    margin-top: 2rem;
+    color: #eee;
+    font-size: 1.5rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+.main-footer__lower{
+    line-height: 1.5;
+    margin: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    padding: 4rem 0;
+    border-top: 1px solid #444;
+    color: #eee;
+    font-size: 1.2rem;
+    text-align: center;
+}
 
 @media (max-width: 768px) {
     .navbar {
