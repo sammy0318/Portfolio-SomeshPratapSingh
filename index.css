@@ -49,6 +49,7 @@ body, html {
 .Headerlinks a:hover {
     background-color: #575757;
     border-radius: 5px;
+    transform: scale(1.1);
 }
 
 .herome {
@@ -159,6 +160,7 @@ body, html {
     color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
+    
 }
 .btn1, .btn1-link {
     position: relative;
@@ -169,6 +171,7 @@ body, html {
 
 .btn-contact:hover {
     background-color: black;
+    transform: scale(1.1);
 }
 
 /* About Section */
@@ -330,6 +333,7 @@ body, html {
 .skills__skill:hover{
     background: rgba(255,255,255,.3);
     color: white;
+    transform: scale(1.1);
 }
 .btn1about, .btn2about {
     display: inline-block;
@@ -377,6 +381,7 @@ body, html {
     font-family: inherit;
     background: #000;
     color: #fff;
+    height: 60vh;
 
 }
 .main-container{
@@ -386,7 +391,7 @@ body, html {
     padding: 0;
     box-sizing: inherit;
     font-family: inherit;
-    max-width: 120rem;
+    max-width: 80rem;
     margin: auto;
     width: 92%;
 }
@@ -398,7 +403,7 @@ body, html {
     font-family: inherit;
     display: flex;
     justify-content: space-between;
-    padding: 8rem 0;
+    padding: 2.6rem 0;
 }
 .main-footer_right
 {
@@ -420,8 +425,8 @@ body, html {
     box-sizing: inherit;
     font-family: inherit;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 2.2rem;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
 }
 .main-footer__social-cont{
     font-size: 62.5%;
@@ -468,7 +473,7 @@ body, html {
     font-family: inherit;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
 }
 .main-footer-left-p
 {
@@ -478,7 +483,7 @@ body, html {
     font-family: inherit;
     margin-top: 2rem;
     color: #eee;
-    font-size: 1.5rem;
+    font-size: 1.0rem;
     line-height: 1.7;
     text-align: justify;
 }
@@ -487,10 +492,10 @@ body, html {
     margin: 0;
     box-sizing: inherit;
     font-family: inherit;
-    padding: 4rem 0;
+    padding: 1.8rem 0;
     border-top: 1px solid #444;
     color: #eee;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     text-align: center;
 }
 
@@ -510,4 +515,50 @@ body, html {
         font-size: 0.9rem; /* Adjust font size for smaller screens */
         padding: 0.4rem 0.8rem; /* Reduce padding */
     }
+}
+@media (max-width: 768px) {
+    .Headerlinks {
+        display: none;
+    }
+    .navbar .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: #50C878 }
+}
+.herosammy {
+    animation: typing 4s steps(40, end), blink 0.7s step-end infinite;
+}
+.aboutlower {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .aboutlower {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+@media (max-width: 768px) {
+    .main-footer__upper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .main-footer_right, .main-footer_left {
+        width: 100%;
+        text-align: center;
+    }
+}
+.skills__skill {
+    transition: background-color 0.3s, color 0.3s;
+    transform: scale(1);
 }
