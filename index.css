@@ -5,8 +5,8 @@ body, html {
     font-family: Arial, sans-serif;
     height: 100%;
     background-color: #000;
+    scroll-behavior: smooth;
 }
-
 /* Navbar */
 .navbar {
     display: flex;
@@ -32,8 +32,6 @@ body, html {
     margin-bottom: 0.5rem;
 
 }
-
-
 /* Navbar links styling */
 .Headerlinks a {
     color: white;
@@ -272,10 +270,6 @@ body, html {
     
 
 }
-.aboutlowerleftP{
-    
-}
-
 .aboutlowerRight{
     display: absolute;
     justify-content: center;
@@ -334,6 +328,10 @@ body, html {
     background: rgba(255,255,255,.3);
     color: white;
     transform: scale(1.1);
+}
+.skills__skill {
+    transition: background-color 0.3s, color 0.3s;
+    transform: scale(1);
 }
 .btn1about, .btn2about {
     display: inline-block;
@@ -556,6 +554,60 @@ body, html {
     .main-footer_right, .main-footer_left {
         width: 100%;
         text-align: center;
+    }
+}
+@media (max-width: 768px) {
+    .main-footer__social-cont {
+        display: flex;
+        justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+    .main-footer__icon {
+        margin-right: 0.5rem;
+    }
+}
+@media (max-width: 768px) {
+    .main-footer__lower {
+        padding: 1rem 0;
+    }
+}
+@media (max-width: 768px) {
+    .aboutlowerLeft, .aboutlowerRight {
+        margin: 0;
+    }
+}
+@media (max-width: 768px) {
+    .aboutlowerLeft {
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .aboutlowerRight {
+        margin-bottom: 1rem;
+        text-align: center;
+        margin-right: 0;
+        margin-left: 0;
+        margin-top: 1rem;
+        text-align: center;
+    }
+}
+@media (max-width: 768px) {
+    .Headerlinks {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aboutlowerLeft, .aboutlowerRight {
+        margin: 1rem auto;
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .aboutlowerRight {
+        
     }
 }
 .skills__skill {
