@@ -653,6 +653,13 @@ html {
         font-size: 1.5rem;
 
     }
+    .aboutlowerh{
+        text-align: center;
+    }
+    .aboutp{
+        width: 90%;
+        margin-top: 1rem;
+    }
         
 }
 
