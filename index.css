@@ -647,8 +647,13 @@ html {
         font-size: 12px; /* Smallest font for very small screens */
     }
    .herosammy{
-        font-size: 1.5rem;
+        font-size: 2.2rem;
     }
+    .homeh1{
+        font-size: 1.5rem;
+
+    }
+        
 }
 
 /* Navbar Responsiveness */
