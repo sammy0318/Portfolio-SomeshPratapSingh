@@ -52,6 +52,63 @@ html {
     border-radius: 5px;
     transform: scale(1.1);
 }
+.Headerlinks {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3.0rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Mobile navigation styles */
+@media screen and (max-width: 486px) AND (max-width: 768px) {
+    .Headerlinks {
+        display: column;
+        width: 100%;
+        flex-direction: column;
+        margin: 0;
+        padding: 1rem 0;
+        background-color: #002337;
+        position: absolute;
+        top: 100%; /* Position below navbar */
+        left: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .Headerlinks.active {
+        display: flex;
+    }
+
+    .Headerlinks a {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .Headerlinks a:last-child {
+        border-bottom: none;
+    }
+
+    /* Hamburger menu button */
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
 
 .herome {
     display: flex;
@@ -241,7 +298,7 @@ html {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     margin-top: auto;
-    text-align: left;
+    text-align: center;
     margin-left: 30px;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -646,7 +703,7 @@ html {
     html {
         font-size: 12px; /* Smallest font for very small screens */
     }
-   .herosammy{
+    .herosammy{
         font-size: 2.2rem;
     }
     .homeh1{
@@ -660,9 +717,7 @@ html {
         width: 90%;
         margin-top: 1rem;
     }
-        
 }
-
 @media screen and (max-width: 576px) {
     html {
         font-size: 12px; /* Smallest font for very small screens */
@@ -702,10 +757,13 @@ html {
     .navbar {
         flex-direction: column; /* Stack items vertically */
         padding: 1rem;
+        height: 13% /* Allow the navbar to grow */
     }
 
     .herome {
         margin-bottom: 1rem; /* Add space between logo and links */
+        max-width: 90%; /* Ensure the logo doesn't overflow */
+        margin-right: auto;
     }
 
     .Headerlinks {
@@ -841,3 +899,95 @@ html {
     max-width: 100%;
     box-sizing: border-box;
 }
+
+
+
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #002337;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .herome {
+    display: flex;
+    align-items: center;
+  }
+  
+  .imgme img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .Headerlinks {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .Headerlinks a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+  }
+  
+  /* Hamburger Menu */
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  .hamburger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+  }
+  .bar{
+    background-color: white;
+    display: block;
+    width: 25px;
+    height: 3px;
+    border-radius: 5px;
+    transition: 0.3s;
+
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .Headerlinks {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color:#002337 ;
+      padding: 10px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  
+    .hamburger-menu {
+      display: flex;
+      margin-top: 3.5%;
+
+    }
+    .bar{
+      display: block;
+
+    }
+
+   
+  
+    
+    .Headerlinks.active {
+        display: block; /* Show when active */
+      }
+  }
+  
