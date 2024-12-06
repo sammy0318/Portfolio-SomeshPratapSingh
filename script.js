@@ -8,7 +8,47 @@ document.getElementById("download-resume").addEventListener("click", function (e
     link.click(); // Simulate a click
     document.body.removeChild(link); // Remove the link after download
 });
-
+  // Hamburger Menu Toggle Functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const headerLinks = document.querySelector('.Headerlinks');
+  
+    // Ensure elements exist before adding event listener
+    if (hamburgerMenu && headerLinks) {
+        hamburgerMenu.addEventListener('click', (event) => {
+            // Prevent default behavior and stop propagation
+            event.preventDefault();
+            event.stopPropagation();
+  
+            // Toggle the active class for the header links
+            headerLinks.classList.toggle('active');
+  
+            // Toggle aria attributes for accessibility
+            const isExpanded = headerLinks.classList.contains('active');
+            hamburgerMenu.setAttribute('aria-expanded', isExpanded);
+            headerLinks.setAttribute('aria-hidden', !isExpanded);
+        });
+  
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!headerLinks.contains(event.target) && 
+                !hamburgerMenu.contains(event.target)) {
+                headerLinks.classList.remove('active');
+                hamburgerMenu.setAttribute('aria-expanded', 'false');
+                headerLinks.setAttribute('aria-hidden', 'true');
+            }
+        });
+  
+        // Close menu on escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && headerLinks.classList.contains('active')) {
+                headerLinks.classList.remove('active');
+                hamburgerMenu.setAttribute('aria-expanded', 'false');
+                headerLinks.setAttribute('aria-hidden', 'true');
+            }
+        });
+    }
+  });
 
 
 
@@ -143,6 +183,8 @@ const ViewportManager = {
         herome?.parentNode.insertBefore(toggle, herome.nextSibling);
       }
     },
+
+    
   
     // Optimize performance for different viewport sizes
     optimizePerformance(width) {
@@ -175,6 +217,7 @@ const ViewportManager = {
       }, { passive: true });
     }
   };
+
   
   // Initialize viewport manager when DOM is loaded
   document.addEventListener('DOMContentLoaded', () => ViewportManager.init());
@@ -190,12 +233,4 @@ const ViewportManager = {
 
 
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const headerLinks = document.querySelector('.Headerlinks');
 
-    hamburgerMenu.addEventListener('click', () => {
-        console.log("Hamburger clicked!"); // Debug log
-        headerLinks.classList.toggle('active');
-    });
-});
