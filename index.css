@@ -862,9 +862,13 @@ html {
         margin-top: 1rem;
     }
     .btn1{
-        width: 40%;
+        margin-top: 20px;
+        width: 60%;
         align-items: center;
-        margin-left: 7rem;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        
         
 
     }
