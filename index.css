@@ -685,7 +685,7 @@ html {
     transition: background-color 0.3s, color 0.3s;
     transform: scale(1);
 }
-@media screen and (min-width: 1300px) and (max-width: 1440px) {
+@media screen and (min-width: 1350px) and (max-width: 1920px) {
     html {
         font-size: 15px; /* Slightly smaller font for larger tablets */
     }
@@ -696,7 +696,7 @@ html {
     gap: 0rem;
     margin-top: -31.0rem;
     margin-bottom: 1rem;
-    margin-left: 57rem;
+    margin-left: 60rem;
     margin-right: 0.5rem;
     padding: 1rem;
     text-align: center;
