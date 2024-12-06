@@ -190,11 +190,12 @@ const ViewportManager = {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  const hamburgerMenu = document.querySelector('.hamburger-menu');
-  const headerLinks = document.querySelector('.Headerlinks');
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const headerLinks = document.querySelector('.Headerlinks');
 
-  hamburgerMenu.addEventListener('click', () => {
-    headerLinks.classList.toggle('active');
-  });
+    hamburgerMenu.addEventListener('click', () => {
+        console.log("Hamburger clicked!"); // Debug log
+        headerLinks.classList.toggle('active');
+    });
 });
