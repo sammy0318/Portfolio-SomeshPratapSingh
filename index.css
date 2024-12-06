@@ -757,7 +757,7 @@ html {
     .navbar {
         flex-direction: column; /* Stack items vertically */
         padding: 1rem;
-        height: 13% /* Allow the navbar to grow */
+        height: 12% /* Allow the navbar to grow */
     }
 
     .herome {
