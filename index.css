@@ -925,7 +925,7 @@ html {
   }
   
   .Headerlinks {
-    display: flex;
+    display: block;
     gap: 15px;
   }
   
@@ -935,59 +935,40 @@ html {
     font-size: 1rem;
   }
   
-  /* Hamburger Menu */
-  .hamburger-menu {
+/* Hamburger Menu Styles */
+.hamburger-menu {
     display: none;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
-  }
-  
-  .hamburger-menu div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    transition: 0.3s;
-  }
-  .bar{
-    background-color: white;
-    display: block;
-    width: 25px;
-    height: 3px;
-    border-radius: 5px;
-    transition: 0.3s;
+    margin-top: 12px;
+}
 
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+/* Responsive Menu Styles */
+@media (max-width: 768px) {
     .Headerlinks {
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      background-color:#002337 ;
-      padding: 10px;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    }
-  
-    .hamburger-menu {
-      display: flex;
-      margin-top: 3.5%;
-
-    }
-    .bar{
-      display: block;
-
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #002337;
+        padding: 10px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-   
-  
-    
     .Headerlinks.active {
-        display: block; /* Show when active */
-      }
-  }
-  
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+}
