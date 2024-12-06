@@ -116,6 +116,7 @@ html {
     gap: 15px;
 }
 
+
 .headerimage {
     width: 45px;
     height: 45px;
@@ -127,6 +128,51 @@ html {
     font-weight: bold;
     color: white;
 }
+
+.imgme {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: #696970;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 10;
+    width: 7.5rem;
+    font-size: 60.5%;
+    line-height: 1.5;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: inherit;
+    margin-top: 0.4rem;
+
+
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 5px;
+    text-decoration: none;
+    color:grey;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background-color: grey;
+    color:grey;
+    display: inline;
+    padding: 6px 5px;
+    display: block;
+
+}
+
 
 /* Hero Section */
 .hero-home {
@@ -184,6 +230,37 @@ html {
 @keyframes blink {
     from, to { border-color: transparent }
     50% { border-color: #50C878 }
+}
+
+@media screen and (max-width: 768px) {
+    .Headerlinks {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+    }
+
+    .Headerlinks.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .hamburger-menu {
+        display: none;
+    }
+
+    .Headerlinks {
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 .homep {
@@ -760,6 +837,10 @@ html {
     html {
         font-size: 13px; /* Smaller font for mobile devices */
     }
+    .btn1{
+        width: auto;
+       
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -780,6 +861,14 @@ html {
         width: 90%;
         margin-top: 1rem;
     }
+    .btn1{
+        width: 40%;
+        align-items: center;
+        margin-left: 10rem;
+        
+
+    }
+
 }
 @media screen and (max-width: 576px) {
     html {
