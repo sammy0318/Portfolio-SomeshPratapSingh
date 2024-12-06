@@ -1,29 +1,46 @@
-document.getElementById("download-resume").addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent default anchor behavior
-    const resumeUrl = "Somesh Pratap Singh Resume.pdf"; // Update with the correct path to your resume
-    const link = document.createElement("a");
-    link.href = resumeUrl;
-    link.download = "Somesh_Pratap_Singh_Resume.pdf"; // The downloaded file name
-    document.body.appendChild(link); // Append the link to the document
-    link.click(); // Simulate a click
-    document.body.removeChild(link); // Remove the link after download
-});
-  // Hamburger Menu Toggle Functionality
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
+    // Resume Download Functionality
+    const downloadResumeBtn = document.getElementById("download-resume");
+    if (downloadResumeBtn) {
+        downloadResumeBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            const resumeUrl = "Somesh Pratap Singh Resume.pdf";
+            const link = document.createElement("a");
+            link.href = resumeUrl;
+            link.download = "Somesh_Pratap_Singh_Resume.pdf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    // Profile Dropdown Functionality
+    const profileButton = document.getElementById('profileButton');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    
+    if (profileButton && dropdownMenu) {
+        profileButton.addEventListener('click', () => {
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (!profileButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.style.display = 'none';
+            }
+        });
+    }
+
+    // Hamburger Menu Toggle Functionality
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const headerLinks = document.querySelector('.Headerlinks');
   
-    // Ensure elements exist before adding event listener
     if (hamburgerMenu && headerLinks) {
         hamburgerMenu.addEventListener('click', (event) => {
-            // Prevent default behavior and stop propagation
             event.preventDefault();
             event.stopPropagation();
   
-            // Toggle the active class for the header links
             headerLinks.classList.toggle('active');
   
-            // Toggle aria attributes for accessibility
             const isExpanded = headerLinks.classList.contains('active');
             hamburgerMenu.setAttribute('aria-expanded', isExpanded);
             headerLinks.setAttribute('aria-hidden', !isExpanded);
@@ -48,189 +65,168 @@ document.getElementById("download-resume").addEventListener("click", function (e
             }
         });
     }
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburgerMenu = document.querySelector('.hamburger-menu');
+  const headerLinks = document.querySelector('.Headerlinks');
+  const navLinks = headerLinks.querySelectorAll('a');
+
+  // Close menu when a nav link is clicked
+  navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+          headerLinks.classList.remove('active');
+          hamburgerMenu.setAttribute('aria-expanded', 'false');
+          headerLinks.setAttribute('aria-hidden', 'true');
+      });
   });
+});
 
-
-
-
-
-
-// Viewport and element size management
+// Viewport and Element Size Management
 const ViewportManager = {
-    // Store initial element sizes for reference
     initialSizes: new Map(),
     
-    // Initialize viewport manager
     init() {
-      this.storeInitialSizes();
-      this.setupEventListeners();
-      this.handleResize();
+        this.storeInitialSizes();
+        this.setupEventListeners();
+        this.handleResize();
     },
   
-    // Store initial sizes of key elements
     storeInitialSizes() {
-      const elements = {
-        heroTitle: document.querySelector('.homeh1'),
-        heroText: document.querySelector('.herosammy'),
-        aboutContent: document.querySelector('.aboutp'),
-        skillItems: document.querySelectorAll('.skills__skill')
-      };
-  
-      for (const [key, element] of Object.entries(elements)) {
-        if (element) {
-          const styles = window.getComputedStyle(element);
-          this.initialSizes.set(key, {
-            fontSize: parseFloat(styles.fontSize),
-            padding: styles.padding,
-            margin: styles.margin
-          });
-        }
-      }
-    },
-  
-    // Set up resize and orientation change listeners
-    setupEventListeners() {
-      let resizeTimeout;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => this.handleResize(), 250);
-      });
-      
-      window.addEventListener('orientationchange', () => {
-        setTimeout(() => this.handleResize(), 100);
-      });
-    },
-  
-    // Handle resize events
-    handleResize() {
-      const width = window.innerWidth;
-      this.adjustElementSizes(width);
-      this.adjustLayout(width);
-      this.optimizePerformance(width);
-    },
-  
-    // Adjust element sizes based on viewport
-    adjustElementSizes(width) {
-      // Adjust hero section
-      const heroTitle = document.querySelector('.homeh1');
-      const heroText = document.querySelector('.herosammy');
-      
-      if (heroTitle && heroText) {
-        const scaleFactor = Math.min(width / 1200, 1);
-        const initialHeroSize = this.initialSizes.get('heroTitle');
-        
-        if (initialHeroSize) {
-          heroTitle.style.fontSize = `${initialHeroSize.fontSize * scaleFactor}px`;
-          heroText.style.fontSize = `${initialHeroSize.fontSize * scaleFactor * 0.8}px`;
-        }
-      }
-  
-      // Adjust skills section
-      const skills = document.querySelectorAll('.skills__skill');
-      skills.forEach(skill => {
-        if (width <= 480) {
-          skill.style.padding = '0.5rem 1rem';
-          skill.style.margin = '0.3rem';
-        } else {
-          const initialSkillSize = this.initialSizes.get('skillItems');
-          if (initialSkillSize) {
-            skill.style.padding = initialSkillSize.padding;
-            skill.style.margin = initialSkillSize.margin;
-          }
-        }
-      });
-    },
-  
-    // Adjust layout based on viewport
-    adjustLayout(width) {
-      const navbar = document.querySelector('.navbar');
-      const headerLinks = document.querySelector('.Headerlinks');
-      
-      if (width <= 768) {
-        navbar?.classList.add('mobile-nav');
-        headerLinks?.classList.add('mobile-links');
-        this.handleMobileNav();
-      } else {
-        navbar?.classList.remove('mobile-nav');
-        headerLinks?.classList.remove('mobile-links');
-        headerLinks.style.display = 'flex';
-      }
-    },
-  
-    // Handle mobile navigation
-    handleMobileNav() {
-      const headerLinks = document.querySelector('.Headerlinks');
-      const herome = document.querySelector('.herome');
-      
-      if (!document.querySelector('.nav-toggle')) {
-        const toggle = document.createElement('button');
-        toggle.className = 'nav-toggle';
-        toggle.innerHTML = '☰';
-        toggle.style.cssText = `
-          background: none;
-          border: none;
-          color: white;
-          font-size: 1.5rem;
-          cursor: pointer;
-          padding: 0.5rem;
-        `;
-        
-        toggle.onclick = () => {
-          const isVisible = headerLinks.style.display === 'flex';
-          headerLinks.style.display = isVisible ? 'none' : 'flex';
+        const elements = {
+            heroTitle: document.querySelector('.homeh1'),
+            heroText: document.querySelector('.herosammy'),
+            aboutContent: document.querySelector('.aboutp'),
+            skillItems: document.querySelectorAll('.skills__skill')
         };
+  
+        for (const [key, element] of Object.entries(elements)) {
+            if (element) {
+                const styles = window.getComputedStyle(element);
+                this.initialSizes.set(key, {
+                    fontSize: parseFloat(styles.fontSize),
+                    padding: styles.padding,
+                    margin: styles.margin
+                });
+            }
+        }
+    },
+  
+    setupEventListeners() {
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => this.handleResize(), 250);
+        });
+      
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => this.handleResize(), 100);
+        });
+    },
+  
+    handleResize() {
+        const width = window.innerWidth;
+        this.adjustElementSizes(width);
+        this.adjustLayout(width);
+        this.optimizePerformance(width);
+    },
+  
+    adjustElementSizes(width) {
+        const heroTitle = document.querySelector('.homeh1');
+        const heroText = document.querySelector('.herosammy');
+      
+        if (heroTitle && heroText) {
+            const scaleFactor = Math.min(width / 1200, 1);
+            const initialHeroSize = this.initialSizes.get('heroTitle');
         
-        herome?.parentNode.insertBefore(toggle, herome.nextSibling);
-      }
-    },
-
-    
+            if (initialHeroSize) {
+                heroTitle.style.fontSize = `${initialHeroSize.fontSize * scaleFactor}px`;
+                heroText.style.fontSize = `${initialHeroSize.fontSize * scaleFactor * 0.8}px`;
+            }
+        }
   
-    // Optimize performance for different viewport sizes
+        const skills = document.querySelectorAll('.skills__skill');
+        skills.forEach(skill => {
+            if (width <= 480) {
+                skill.style.padding = '0.5rem 1rem';
+                skill.style.margin = '0.3rem';
+            } else {
+                const initialSkillSize = this.initialSizes.get('skillItems');
+                if (initialSkillSize) {
+                    skill.style.padding = initialSkillSize.padding;
+                    skill.style.margin = initialSkillSize.margin;
+                }
+            }
+        });
+    },
+  
+    adjustLayout(width) {
+        const navbar = document.querySelector('.navbar');
+        const headerLinks = document.querySelector('.Headerlinks');
+      
+        if (width <= 768) {
+            navbar?.classList.add('mobile-nav');
+            headerLinks?.classList.add('mobile-links');
+            this.handleMobileNav();
+        } else {
+            navbar?.classList.remove('mobile-nav');
+            headerLinks?.classList.remove('mobile-links');
+            headerLinks && (headerLinks.style.display = 'flex');
+        }
+    },
+  
+    handleMobileNav() {
+        const headerLinks = document.querySelector('.Headerlinks');
+        const herome = document.querySelector('.herome');
+      
+        if (!document.querySelector('.nav-toggle')) {
+            const toggle = document.createElement('button');
+            toggle.className = 'nav-toggle';
+            toggle.innerHTML = '☰';
+            toggle.style.cssText = `
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+                padding: 0.5rem;
+            `;
+        
+            toggle.onclick = () => {
+                const isVisible = headerLinks.style.display === 'flex';
+                headerLinks.style.display = isVisible ? 'none' : 'flex';
+            };
+        
+            herome?.parentNode.insertBefore(toggle, herome.nextSibling);
+        }
+    },
+  
     optimizePerformance(width) {
-      // Disable animations on mobile
-      if (width <= 768) {
-        document.body.classList.add('reduce-motion');
-        this.debounceScrollEvents();
-      } else {
-        document.body.classList.remove('reduce-motion');
-      }
+        if (width <= 768) {
+            document.body.classList.add('reduce-motion');
+            this.debounceScrollEvents();
+        } else {
+            document.body.classList.remove('reduce-motion');
+        }
       
-      // Optimize background images
-      const heroSection = document.querySelector('.hero-home');
-      const aboutSection = document.querySelector('.about');
+        const heroSection = document.querySelector('.hero-home');
+        const aboutSection = document.querySelector('.about');
       
-      if (width <= 480) {
-        heroSection?.style.setProperty('background-attachment', 'scroll');
-        aboutSection?.style.setProperty('background-attachment', 'scroll');
-      }
+        if (width <= 480) {
+            heroSection?.style.setProperty('background-attachment', 'scroll');
+            aboutSection?.style.setProperty('background-attachment', 'scroll');
+        }
     },
   
-    // Debounce scroll events for better performance
     debounceScrollEvents() {
-      let scrollTimeout;
-      window.addEventListener('scroll', () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          // Handle scroll-based animations and effects
-        }, 150);
-      }, { passive: true });
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                // Placeholder for scroll-based animations/effects
+            }, 150);
+        }, { passive: true });
     }
-  };
+};
 
-  
-  // Initialize viewport manager when DOM is loaded
-  document.addEventListener('DOMContentLoaded', () => ViewportManager.init());
-  
-  // Handle dynamic content loading
-  document.addEventListener('load', () => {
-    ViewportManager.storeInitialSizes();
-    ViewportManager.handleResize();
-  });
-
-
-
-
-
-
-
+// Initialize viewport manager
+document.addEventListener('DOMContentLoaded', () => ViewportManager.init());
