@@ -1005,6 +1005,11 @@ html {
         width: 100%;
         margin: 0.5rem 0;
     }
+         .aboutlowerh{
+        
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 @media screen and (max-width: 480px) {
      .btn1about, .btn2about {
