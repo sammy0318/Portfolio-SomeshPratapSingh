@@ -1006,6 +1006,17 @@ html {
         margin: 0.5rem 0;
     }
 }
+@media screen and (max-width: 480px) {
+     .btn1about, .btn2about {
+        width: 60%;
+        
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+
+
+    }
+}
 
 /* Footer Responsiveness */
 @media screen and (max-width: 768px) {
