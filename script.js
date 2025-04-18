@@ -227,6 +227,128 @@ const ViewportManager = {
         }, { passive: true });
     }
 };
+// Project Cards Animation
+document.addEventListener('DOMContentLoaded', () => {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    // Animate project cards on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    projectCards.forEach(card => {
+      observer.observe(card);
+      
+      // Add hover effect
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px)';
+        card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.4)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+        card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.3)';
+      });
+    });
+    
+    // Add project filtering if needed in the future
+    // This is a placeholder for potential filter functionality
+    const addProjectFiltering = () => {
+      const filterContainer = document.createElement('div');
+      filterContainer.className = 'project-filters';
+      
+      // Add filter options based on project technologies
+      const uniqueTechnologies = new Set();
+      document.querySelectorAll('.tech-tag').forEach(tag => {
+        uniqueTechnologies.add(tag.textContent);
+      });
+      
+      // Create filter buttons
+      if (uniqueTechnologies.size > 0) {
+        const allFilter = document.createElement('button');
+        allFilter.className = 'filter-button active';
+        allFilter.textContent = 'All';
+        filterContainer.appendChild(allFilter);
+        
+        uniqueTechnologies.forEach(tech => {
+          const filterBtn = document.createElement('button');
+          filterBtn.className = 'filter-button';
+          filterBtn.textContent = tech;
+          filterContainer.appendChild(filterBtn);
+        });
+        
+        // Add filter container before projects grid
+        const projectsGrid = document.querySelector('.projects-grid');
+        if (projectsGrid && projectsGrid.parentElement) {
+          projectsGrid.parentElement.insertBefore(filterContainer, projectsGrid);
+        }
+      }
+    };
+    
+    // Uncomment the line below if you want to implement filtering
+    // addProjectFiltering();
+    
+    // Update viewport manager to include projects section
+    if (window.ViewportManager) {
+      const originalInit = ViewportManager.init;
+      ViewportManager.init = function() {
+        originalInit.call(this);
+        this.handleProjectCards();
+      };
+      
+      ViewportManager.handleProjectCards = function() {
+        const width = window.innerWidth;
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        projectCards.forEach(card => {
+          if (width <= 576) {
+            card.style.height = 'auto';
+          } else {
+            card.style.height = '100%';
+          }
+        });
+      };
+    }
+  });
+  
+  // Add keydown event listeners to project links for accessibility
+  document.addEventListener('DOMContentLoaded', () => {
+    const projectLinks = document.querySelectorAll('.project-links a');
+    
+    projectLinks.forEach(link => {
+      link.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          link.click();
+        }
+      });
+    });
+  });
+  
+  // Add fade-in animation CSS dynamically
+  document.addEventListener('DOMContentLoaded', () => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .project-card {
+        opacity: 0;
+      }
+      
+      .project-card.fade-in {
+        animation: fadeIn 0.6s ease forwards;
+      }
+    `;
+    document.head.appendChild(style);
+  });
 
 // Initialize viewport manager
 document.addEventListener('DOMContentLoaded', () => ViewportManager.init());
