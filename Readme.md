@@ -38,6 +38,6 @@ Feel free to reach out to me:
 
 Email: somesh180309@gmail.com
 
-LinkedIn: linkedin.com/in/somesh-pratap-singh-6668b525a/
+LinkedIn: [linkedin.com/in/somesh-pratap-singh-6668b525a/](https://www.linkedin.com/in/somesh-pratap-singh-6668b525a/)
 
-GitHub: github.com/sammy0318
+GitHub: [github.com/sammy0318](https://github.com/sammy0318)
