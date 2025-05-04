@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio website! This project showcases my skills, projects, and experiences as a developer. It's designed to provide visitors with a comprehensive view of my professional journey and technical proficiencies.
 
-🔗 Live Site: sammy0318.github.io/Portfolio-SomeshPratapSing
+🔗 Live Site: [sammy0318.github.io/Portfolio-SomeshPratapSing](https://sammy0318.github.io/Portfolio-SomeshPratapSingh/)
 
 ---
 
