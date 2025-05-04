@@ -313,9 +313,8 @@ html {
 /* About Section */
 .about {
   padding: 4rem 0;
-
   height: 120vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(145deg, #3b003f 50%, #011c66 90%),
     url("assets/pexels-negativespace-97077\ copy.jpg");
   background-size: cover;
   background-attachment: fixed;
@@ -326,17 +325,15 @@ html {
   align-items: center;
   color: white;
   text-align: center;
+  padding-bottom: 120px;
+  padding-top: 100px;
   position: relative;
   overflow: hidden;
-  background-attachment: fixed;
-  text-align: center;
 }
 .aboutcontent {
-  margin-bottom: 2.5rem;
+  margin-top: 3.5rem !important;
 }
-.aboutcontent {
-  margin-top: 28px;
-}
+
 .span1 {
   display: block;
   font-size: 1.5em;
@@ -363,6 +360,7 @@ html {
   text-decoration: underline;
   text-underline-offset: 7px;
   border-radius: 15px;
+  margin-bottom: 15px !important;
 }
 .aboutp {
   font-size: 1.1rem;
@@ -370,9 +368,6 @@ html {
   letter-spacing: normal;
   font-family: "Roboto", sans-serif;
   color: lavender;
-
-  width: 40%;
-  margin-top: 20px;
 }
 .aboutlowerh {
   font-size: 1.5rem;
@@ -890,6 +885,8 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  padding: auto !important;
 }
 
 @media (min-width: 768px) {
